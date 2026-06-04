@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTF Creatives Logs | Premium Subscriptions & Design</title>
+    
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Base Styling & Theme */
+        :root {
+            --netflix-red: #E50914;
+            --netflix-black: #141414;
+            --card-bg: rgba(15, 15, 18, 0.8);
+            --neon-cyan: #00f3ff;
+            --neon-purple: #bd00ff;
+            --text-color: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Clash Display', sans-serif;
+        }
+
+        body {
+            background-color: var(--netflix-black);
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Holographic Room Setup: Laptop & Mobile Canvas */
+        .bg-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.45;
+            pointer-events: none;
+            perspective: 1600px;
+            background: 
+                radial-gradient(circle at 85% 15%, rgba(0, 243, 255, 0.15) 0%, transparent 55%),
+                radial-gradient(circle at 15% 85%, rgba(229, 9, 20, 0.12) 0%, transparent 55%),
+                #09090b;
+        }
+
+        .neon-floor {
+            position: relative;
+            width: 900px;
+            height: 750px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotateX(55deg) rotateZ(-10deg);
+        }
+
+        /* Animated 3D Laptop Mockup running Photoshop */
+        .laptop-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.85);
+        }
+
+        .laptop-screen {
+            width: 320px;
+            height: 200px;
+            background: #111;
+            border: 10px solid #222;
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.25);
+        }
+
+        /* Photoshop Workspace Simulation UI */
+        .ps-interface {
+            width: 100%;
+            height: 100%;
+            background: #1e1e24;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.5rem;
+            color: #aaa;
+        }
+        .ps-topbar {
+            height: 14px;
+            background: #141416;
+            display: flex;
+            align-items: center;
+            padding: 0 6px;
+            gap: 8px;
+            border-bottom: 1px solid #2d2d35;
+        }
+        .ps-topbar span { color: #51c4ff; font-weight: bold; }
+        .ps-workspace {
+            flex-grow: 1;
+            display: flex;
+            position: relative;
+        }
+        .ps-toolbar {
+            width: 18px;
+            background: #141416;
+            border-right: 1px solid #2d2d35;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 6px;
+            gap: 8px;
+        }
+        .ps-canvas {
+            flex-grow: 1;
+            background: #111115;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        /* Animated vector path inside photoshop artboard */
+        .ps-artboard {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #2c003e 0%, #002b47 100%);
+            border: 1px dashed rgba(0, 243, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: pulseCanvas 4s infinite ease-in-out;
+        }
+        .ps-artboard i {
+            font-size: 2.2rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px var(--neon-cyan);
+        }
+        .ps-layers {
+            width: 45px;
+            background: #141416;
+            border-left: 1px solid #2d2d35;
+            display: flex;
+            flex-direction: column;
+            padding: 4px;
+            gap: 4px;
+        }
+        .ps-layer-item {
+            width: 100%;
+            height: 10px;
+            background: #2a2a35;
+            border-radius: 2px;
+        }
+
+        .laptop-base {
+            width: 380px;
+            height: 14px;
+            background: #2d2d35;
+            border-radius: 0 0 16px 16px;
+            border-top: 2px solid #444;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+        }
+
+        /* Flat Laying iPhone */
+        .iphone-mockup {
+            width: 210px;
+            height: 430px;
+            border: 8px solid rgba(255, 255, 255, 0.12);
+            border-radius: 36px;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 
+                -20px 20px 50px rgba(0, 0, 0, 0.9),
+                0 0 30px rgba(229, 9, 20, 0.15);
+        }
+
+        .iphone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75px;
+            height: 18px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        /* UI App Mockup Slider Loop */
+        .slider {
+            display: flex;
+            width: 400%; 
+            height: 100%;
+            animation: appSlideAnimation 20s infinite ease-in-out;
+        }
+
+        .slide-interface {
+            width: 100%;
+            height: 100%;
+            padding: 35px 15px 15px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #0b0b0e;
+        }
+
+        .ui-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding-bottom: 8px;
+            color: #666;
+        }
+        .ui-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .ui-media-box {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #16161f, #08080a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2rem;
+            overflow: hidden;
+        }
+        .ui-media-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ui-bar {
+            width: 80%;
+            height: 5px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .ui-progress { height: 100%; width: 70%; background: var(--netflix-red); }
+        .ui-footer-nav {
+            height: 30px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #444;
+        }
+
+        .app-spotify .ui-progress { background: #1DB954; }
+        .app-spotify .ui-media-box { color: #1DB954; }
+        .app-chatgpt .ui-progress { background: #10A37F; }
+        .app-chatgpt .ui-media-box { color: #10A37F; }
+        .app-whatsapp .ui-progress { background: #25D366; }
+        .app-whatsapp .ui-media-box { color: #25D366; }
+
+        @keyframes appSlideAnimation {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-100%); }
+            50%, 70% { transform: translateX(-200%); }
+            75%, 95% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes pulseCanvas {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.03); filter: brightness(1.2); }
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            background: linear-gradient(to bottom, rgba(10,10,12,0.96), transparent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #FFF;
+        }
+
+        .whatsapp-btn {
+            background-color: var(--netflix-red);
+            color: #FFF;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover { background-color: #b80710; }
+
+        /* Hero Layout */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #CCC;
+            margin-bottom: 20px;
+        }
+
+        .hero-email {
+            font-size: 1rem;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        /* Tiny Social Row Platform Layouts */
+        .social-badge-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 15px;
+            background: rgba(255,255,255,0.04);
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+            width: max-content;
+            margin: 15px auto 0 auto;
+        }
+
+        .social-title-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #eee;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-icons-wrap {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons-wrap a {
+            color: #aaa;
+            font-size: 0.95rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .social-icons-wrap a:hover {
+            color: var(--neon-cyan);
+            transform: scale(1.15);
+        }
+
+        .owner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .fa-circle-check { color: #1D9BF0; }
+
+        /* Universal Section Architecture */
+        .main-container {
+            padding: 0 6% 40px 6%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--netflix-red);
+            padding-left: 12px;
+            letter-spacing: 1px;
+        }
+
+        .section-title.design-title { border-left-color: var(--neon-cyan); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        /* Card Profiles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            border: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(12px);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(229, 9, 20, 0.25);
+            border-color: var(--netflix-red);
+        }
+
+        .design-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 243, 255, 0.25);
+            border-color: var(--neon-cyan);
+        }
+
+        .card-content {
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 55px;
+        }
+
+        .card-content img.netflix-custom-icon {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .ic-capcut { color: #FFFFFF; }
+        .ic-spotify { color: #1DB954; }
+        .ic-apple { color: #FA243C; }
+        .ic-canva { color: #00C4CC; }
+        .ic-chatgpt { color: #10A37F; }
+        .ic-grok { color: #FFFFFF; }
+        .ic-vpn { color: #3A76F6; }
+        .ic-whatsapp { color: #25D366; }
+        .ic-design { color: var(--neon-cyan); }
+        .ic-branding { color: var(--neon-purple); }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p.desc {
+            font-size: 0.95rem;
+            color: #aaa;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #FFF;
+            margin: 15px 0;
+        }
+
+        .order-btn {
+            display: block;
+            background: transparent;
+            border: 2px solid var(--netflix-red);
+            color: #FFF;
+            padding: 11px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .order-btn:hover { background: var(--netflix-red); }
+        .design-btn { border-color: var(--neon-cyan); }
+        .design-btn:hover { background: var(--neon-cyan); color: #000; }
+
+        /* Floating Cart Bar Style */
+        .floating-cart-bar {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 243, 255, 0.2);
+            cursor: pointer;
+            transform: translateY(150px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .floating-cart-bar.active {
+            transform: translateY(0);
+        }
+
+        .cart-bar-icon-wrap {
+            position: relative;
+        }
+
+        .cart-bar-icon-wrap i {
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+        }
+
+        .cart-counter-badge {
+            position: absolute;
+            top: -10px;
+            right: -12px;
+            background: var(--netflix-red);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px var(--netflix-red);
+        }
+
+        .cart-bar-summary-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        /* Slide-out Cart Sidebar Framework */
+        .cart-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .cart-sidebar-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 440px;
+            height: 100%;
+            background: rgba(15, 15, 18, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.8);
+        }
+
+        .cart-sidebar.open {
+            transform: translateX(0);
+        }
+
+        .cart-sidebar-header {
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cart-sidebar-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-sidebar-header h2 i {
+            color: var(--netflix-red);
+        }
+
+        .cart-sidebar-close-btn {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .cart-sidebar-close-btn:hover {
+            color: #fff;
+        }
+
+        .cart-items-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Custom Scrollbar for Sidebar */
+        .cart-items-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .cart-items-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .cart-items-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .empty-cart-state {
+            text-align: center;
+            margin: auto;
+            color: #666;
+        }
+
+        .empty-cart-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            color: #333;
+        }
+
+        .cart-item-node {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: nodeEntrance 0.3s ease;
+        }
+
+        @keyframes nodeEntrance {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cart-item-details h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-details p {
+            font-size: 0.95rem;
+            color: var(--neon-cyan);
+            font-weight: bold;
+        }
+
+        .cart-item-remove-btn {
+            background: transparent;
+            border: none;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.2s;
+            font-size: 1.1rem;
+            padding: 5px;
+        }
+
+        .cart-item-remove-btn:hover {
+            color: var(--netflix-red);
+        }
+
+        .cart-sidebar-footer {
+            padding: 30px;
+            background: rgba(10, 10, 12, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-total-row span {
+            font-size: 1.1rem;
+            color: #aaa;
+            font-weight: 500;
+        }
+
+        .cart-total-row .total-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .submit-order-btn {
+            width: 100%;
+            background: var(--netflix-red);
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3);
+        }
+
+        .submit-order-btn:hover {
+            background: #b80710;
+        }
+
+        .submit-order-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Universal Section Architecture */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid #1f1f25;
+            background: #0d0d11;
+            color: #666;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: var(--neon-cyan); }
+
+        .footer-contacts {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: #ccc;
+        }
+
+        /* Responsive Mechanics */
+        @media (max-width: 900px) {
+            .neon-floor {
+                flex-direction: column;
+                gap: 40px;
+                height: auto;
+                width: 100%;
+                transform: none;
+                padding: 60px 0;
+            }
+            .laptop-screen { width: 260px; height: 160px; }
+            .laptop-base { width: 310px; }
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2.3rem; }
+            .grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+            .floating-cart-bar { right: 20px; bottom: 20px; padding: 12px 20px; }
+            .cart-sidebar { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-background">
+        <div class="neon-floor">
+            <div class="laptop-container">
+                <div class="laptop-screen">
+                    <div class="ps-interface">
+                        <div class="ps-topbar">
+                            <i class="fa-solid fa-square-h"></i>
+                            <span>Ps</span> Photoshop Mockup v2026
+                        </div>
+                        <div class="ps-workspace">
+                            <div class="ps-toolbar">
+                                <i class="fa-solid fa-mouse-pointer"></i>
+                                <i class="fa-solid fa-crop"></i>
+                                <i class="fa-solid fa-pen-nib"></i>
+                                <i class="fa-solid fa-brush"></i>
+                            </div>
+                            <div class="ps-canvas">
+                                <div class="ps-artboard">
+                                    <i class="fa-solid fa-bezier-curve"></i>
+                                </div>
+                            </div>
+                            <div class="ps-layers">
+                                <div class="ps-layer-item" style="background:var(--neon-cyan)"></div>
+                                <div class="ps-layer-item"></div>
+                                <div class="ps-layer-item"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="laptop-base"></div>
+            </div>
+
+            <div class="iphone-mockup">
+                <div class="slider">
+                    <div class="slide-interface app-netflix">
+                        <div class="ui-header"><span>NETFLIX</span><i class="fas fa-wifi"></i></div>
+                        <div class="ui-body">
+                            <div class="ui-media-box">
+                                <img src="https://www.image2url.com/r2/default/images/1780590896129-adc71b2b-88b4-4ca9-a11c-7df98b99e7b9.jfif" alt="Netflix UI Asset" />
+                            </div>
+                            <div class="ui-bar"><div class="ui-progress"></div></div>
+                        </div>
+                        <div class="ui-footer-nav"><i class="fas fa-house"></i><i class="fas fa-magnifying-glass"></i></div>
+                    </div>
+                    <div class="slide-interface app-spotify">
+                        <div class="ui-header"><span>SPOTIFY</span><i class="fas fa-wifi"></i></div>
+                        <div class="ui-body">
+                            <div class="ui-media-box"><i class="fab fa-spotify"></i></div>
+                            <div class="ui-bar"><div class="ui-progress"></div></div>
+                        </div>
+                        <div class="ui-footer-nav"><i class="fas fa-house"></i><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="slide-interface app-chatgpt">
+                        <div class="ui-header"><span>CHATGPT</span><i class="fas fa-wifi"></i></div>
+                        <div class="ui-body">
+                            <div class="ui-media-box"><i class="fa-solid fa-robot"></i></div>
+                            <div class="ui-bar"><div class="ui-progress"></div></div>
+                        </div>
+                        <div class="ui-footer-nav"><i class="fas fa-message"></i><i class="fas fa-gear"></i></div>
+                    </div>
+                    <div class="slide-interface app-whatsapp">
+                        <div class="ui-header"><span>WHATSAPP</span><i class="fas fa-wifi"></i></div>
+                        <div class="ui-body">
+                            <div class="ui-media-box"><i class="fab fa-whatsapp"></i></div>
+                            <div class="ui-bar"><div class="ui-progress"></div></div>
+                        </div>
+                        <div class="ui-footer-nav"><i class="fas fa-phone"></i><i class="fas fa-comment"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://www.image2url.com/r2/default/images/1780473818825-faf0771e-6c56-417a-81b6-98a77e39c1d4.png" alt="OTF Creatives Logo" class="logo-img">
+            <span class="brand-name">OTF CREATIVES</span>
+        </div>
+        <nav>
+            <a href="https://wa.me/2349131847332?text=Hello%20OTF%20Creatives,%20I%20want%20to%20inquire%20about%20your%20services" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Contact Via WhatsApp
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="owner-badge">
+            <span>Owner OTF Creatives</span> <i class="fas fa-circle-check"></i>
+        </div>
+        <h1 style="margin-top: 15px;">Premium Subscriptions & Professional Graphics</h1>
+        <p>Maximum asset uptimes combined with custom identity structures instantly delivered to you.</p>
+        <a href="mailto:okolisomtochukwu2@gmail.com" class="hero-email"><i class="far fa-envelope"></i> okolisomtochukwu2@gmail.com</a>
+        
+        <div class="social-badge-container">
+            <span class="social-title-text">Our Platforms:</span>
+            <div class="social-icons-wrap">
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <span class="social-title-text" style="color:var(--neon-cyan)">@OTFCreatives</span>
+        </div>
+    </section>
+
+    <main class="main-container">
+        <h2 class="section-title">Available Premium Accounts</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <img src="https://www.image2url.com/r2/default/images/1780590896129-adc71b2b-88b4-4ca9-a11c-7df98b99e7b9.jfif" alt="Netflix Premium Official Icon" class="netflix-custom-icon" />
+                    <h3>Netflix Premium</h3>
+                    <div class="price">₦2,000</div>
+                    <button onclick="addToCart('Netflix Premium', '₦2,000')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="service-icon ic-capcut"><i class="fa-solid fa-video"></i></div>
+                    <h3>CapCut Premium</h3>
+                    <div class="price">₦5,000</div>
+                    <button onclick="addToCart('CapCut Premium', '₦5,000')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="service-icon ic-spotify"><i class="fab fa-spotify"></i></div>
+                    <h3>Spotify Premium</h3>
+                    <div class="price">₦1,500</div>
+                    <button onclick="addToCart('Spotify Premium', '₦1,500')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="service-icon ic-apple"><i class="fab fa-apple"></i></div>
+                    <h3>Apple Music</h3>
+                    <div class="price">₦2,000</div>
+                    <button onclick="addToCart('Apple Music', '₦2,000')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="service-icon ic-canva"><i class="fa-solid fa-bezier-curve"></i></div>
+                    <h3>Canva Pro</h3>
+                    <div class="price">₦1,500</div>
+                    <button onclick="addToCart('Canva Pro', '₦1,500')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="service-icon ic-chatgpt"><i class="fa-solid fa-robot"></i></div>
+                    <h3>ChatGPT Premium</h3>
+                    <div class="price">₦6,000</div>
+                    <button onclick="addToCart('ChatGPT Premium', '₦6,000')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="service-icon ic-grok"><i class="fa-solid fa-brain"></i></div>
+                    <h3>Grok AI</h3>
+                    <div class="price">₦7,000</div>
+                    <button onclick="addToCart('Grok AI', '₦7,000')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="service-icon ic-vpn"><i class="fas fa-shield-halved"></i></div>
+                    <h3>Premium VPN</h3>
+                    <div class="price">Best Rates</div>
+                    <button onclick="addToCart('Premium VPN', 'Best Rates')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="service-icon ic-whatsapp"><i class="fab fa-whatsapp"></i></div>
+                    <h3>WhatsApp Bot</h3>
+                    <div class="price">₦3,500</div>
+                    <button onclick="addToCart('WhatsApp Bot', '₦3,500')" class="order-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title design-title">Graphic Design Services</h2>
+        <div class="grid">
+            <div class="card design-card">
+                <div class="card-content">
+                    <div class="service-icon ic-design"><i class="fa-solid fa-palette"></i></div>
+                    <h3>Brand Logo Creation</h3>
+                    <p class="desc">High-end, modern typography frameworks and memorable custom logo marks tailored specifically to elevate business profiles.</p>
+                    <button onclick="addToCart('Brand Logo Creation', 'Discuss Rates')" class="order-btn design-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card design-card">
+                <div class="card-content">
+                    <div class="service-icon ic-design"><i class="fa-solid fa-rectangle-ad"></i></div>
+                    <h3>Flyers & Billboards</h3>
+                    <p class="desc">High-converting social media ads, promotional visual templates, corporate event banners, and high-impact poster configurations.</p>
+                    <button onclick="addToCart('Flyers & Billboards', 'Discuss Rates')" class="order-btn design-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card design-card">
+                <div class="card-content">
+                    <div class="service-icon ic-design"><i class="fa-solid fa-clapperboard"></i></div>
+                    <h3>4K Content Editing</h3>
+                    <p class="desc">Full dynamic visual scripts, cinematic sequence formatting, upscaled high-definition renderings, and immersive atmospheric editing frameworks.</p>
+                    <button onclick="addToCart('4K Content Editing', 'Discuss Rates')" class="order-btn design-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card design-card">
+                <div class="card-content">
+                    <div class="service-icon ic-branding"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>Business Brandings</h3>
+                    <p class="desc">Comprehensive identity kits, stationeries, premium typography books, pitch decks, and uniform corporate asset packages.</p>
+                    <button onclick="addToCart('Business Brandings', 'Discuss Rates')" class="order-btn design-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card design-card">
+                <div class="card-content">
+                    <div class="service-icon ic-design"><i class="fa-solid fa-file-code"></i></div>
+                    <h3>Premium PSD Files</h3>
+                    <p class="desc">Completely uncompressed design master files, fully un-flattened layout structures, smart object modules, and production templates.</p>
+                    <button onclick="addToCart('Premium PSD Files', 'Discuss Rates')" class="order-btn design-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="floatingCartBar" class="floating-cart-bar" onclick="toggleCartSidebar(true)">
+        <div class="cart-bar-icon-wrap">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span id="cartCounterBadge" class="cart-counter-badge">0</span>
+        </div>
+        <div id="cartBarSummaryText" class="cart-bar-summary-text">0 Items Added</div>
+    </div>
+
+    <div id="cartSidebarOverlay" class="cart-sidebar-overlay" onclick="toggleCartSidebar(false)"></div>
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-sidebar-header">
+            <h2><i class="fa-solid fa-basket-shopping"></i> Your Cart</h2>
+            <button class="cart-sidebar-close-btn" onclick="toggleCartSidebar(false)"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div id="cartItemsContainer" class="cart-items-container">
+            </div>
+
+        <div class="cart-sidebar-footer">
+            <div class="cart-total-row">
+                <span>Subtotal Summary:</span>
+                <div id="cartTotalAmount" class="total-amount">₦0</div>
+            </div>
+            <button onclick="routeOrderToWhatsApp()" class="submit-order-btn">
+                <i class="fab fa-whatsapp"></i> Submit Order via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-contacts">
+            <span class="footer-link"><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/2349131847332" target="_blank">+234 913 184 7332</a></span>
+            <span class="footer-link"><i class="far fa-envelope"></i> Email: <a href="mailto:okolisomtochukwu2@gmail.com">okolisomtochukwu2@gmail.com</a></span>
+        </div>
+        
+        <div class="social-icons-wrap" style="justify-content: center; margin-bottom: 20px; gap: 15px;">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <span style="font-size:0.85rem; color:#444; margin-left:5px;">@OTFCreatives</span>
+        </div>
+        
+        <p>&copy; 2026 OTF Creatives Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let shoppingCart = [];
+
+        function addToCart(itemName, itemPrice) {
+            // Validate duplication to prevent redundant entries
+            const duplicateItem = shoppingCart.find(element => element.name === itemName);
+            if (duplicateItem) {
+                duplicateItem.quantity += 1;
+            } else {
+                shoppingCart.push({
+                    name: itemName,
+                    price: itemPrice,
+                    quantity: 1
+                });
+            }
+            renderCartUpdates();
+            // Automatically reveal floating bar when items exist
+            document.getElementById('floatingCartBar').classList.add('active');
+        }
+
+        function removeCartItem(itemName) {
+            shoppingCart = shoppingCart.filter(element => element.name !== itemName);
+            renderCartUpdates();
+            if (shoppingCart.length === 0) {
+                document.getElementById('floatingCartBar').classList.remove('active');
+                toggleCartSidebar(false);
+            }
+        }
+
+        function toggleCartSidebar(openState) {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.getElementById('cartSidebarOverlay');
+            if (openState) {
+                sidebar.classList.add('open');
+                overlay.classList.add('open');
+            } else {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('open');
+            }
+        }
+
+        function renderCartUpdates() {
+            const container = document.getElementById('cartItemsContainer');
+            const counterBadge = document.getElementById('cartCounterBadge');
+            const barSummaryText = document.getElementById('cartBarSummaryText');
+            const totalDisplay = document.getElementById('cartTotalAmount');
+
+            // Reset container node
+            container.innerHTML = '';
+
+            if (shoppingCart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart-state">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <p>Your cart is empty.</p>
+                    </div>`;
+                counterBadge.textContent = '0';
+                barSummaryText.textContent = '0 Items Added';
+                totalDisplay.textContent = '₦0';
+                return;
+            }
+
+            let computedSum = 0;
+            let totalItemCount = 0;
+            let discussionsNeeded = false;
+
+            shoppingCart.forEach(item => {
+                totalItemCount += item.quantity;
+                
+                // Parse numeric value if present
+                const dynamicNumericValue = parseInt(item.price.replace(/[^0-9]/g, ''));
+                if (!isNaN(dynamicNumericValue)) {
+                    computedSum += (dynamicNumericValue * item.quantity);
+                } else {
+                    discussionsNeeded = true;
+                }
+
+                // Append Item Node layout
+                const itemNode = document.createElement('div');
+                itemNode.className = 'cart-item-node';
+                itemNode.innerHTML = `
+                    <div class="cart-item-details">
+                        <h4>${item.name} ${item.quantity > 1 ? `x${item.quantity}` : ''}</h4>
+                        <p>${item.price}</p>
+                    </div>
+                    <button class="cart-item-remove-btn" onclick="removeCartItem('${item.name}')">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                `;
+                container.appendChild(itemNode);
+            });
+
+            // Format UI Values
+            counterBadge.textContent = totalItemCount;
+            barSummaryText.textContent = `${totalItemCount} ${totalItemCount === 1 ? 'Item' : 'Items'} Selected`;
+            
+            if (computedSum > 0) {
+                totalDisplay.textContent = `₦${computedSum.toLocaleString()}${discussionsNeeded ? ' + Custom Rates' : ''}`;
+            } else {
+                totalDisplay.textContent = 'Discuss Rates';
+            }
+        }
+
+        function routeOrderToWhatsApp() {
+            if (shoppingCart.length === 0) return;
+
+            let messageHeader = "🔥 *NEW ORDER - OTF CREATIVES* 🔥\n\n";
+            let formattedManifest = "";
+            let finalCalculatedTotal = 0;
+            let openCustomQuoteNeeded = false;
+
+            shoppingCart.forEach((item, index) => {
+                formattedManifest += `${index + 1}. ✅ *${item.name}* (Qty: ${item.quantity}) - _${item.price}_\n`;
+                const itemCostInteger = parseInt(item.price.replace(/[^0-9]/g, ''));
+                if (!isNaN(itemCostInteger)) {
+                    finalCalculatedTotal += (itemCostInteger * item.quantity);
+                } else {
+                    openCustomQuoteNeeded = true;
+                }
+            });
+
+            let summaryBlock = "\n--------------------------------\n";
+            if (finalCalculatedTotal > 0) {
+                summaryBlock += `💰 *Subtotal Aggregate:* ₦${finalCalculatedTotal.toLocaleString()}\n`;
+            }
+            if (openCustomQuoteNeeded) {
+                summaryBlock += `💬 *Note:* Custom creative rates to be estimated via chat.\n`;
+            }
+            summaryBlock += "--------------------------------\n\n⚡ Please process my purchase portfolio selection structural setup.";
+
+            const absoluteRawPayloadString = messageHeader + formattedManifest + summaryBlock;
+            const targetRouterURL = `https://wa.me/2349131847332?text=${encodeURIComponent(absoluteRawPayloadString)}`;
+            
+            // Dispatch link pipeline
+            window.open(targetRouterURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>
